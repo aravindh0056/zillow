@@ -1,9 +1,6 @@
 var express = require('express')
   , http = require('http')
 
-var app = express()
-
-var express = require('express');
 var app = express();
 
 app.get('/cars', function(req, res){
