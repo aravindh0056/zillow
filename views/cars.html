@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $.ajax({url:"http://localhost:3000",success:function(result){
+    	console.log(result);
+      var list = $('<ul id="list"></ul>');
+      $("#carList").append(list);
+      $.each(result.automobiles, function() {
+      	var content = $('<li></li>');
+      	list.append(content);
+  		$.each(this, function(key, value) {
+  			if(key == "mpg") content.attr('id', value);
+  			 content.append(" " + value + " ");
+  		});
+		});
+
+      var elems = $('#list').children('li').remove();
+    elems.sort(function(a,b){
+        return parseInt(a.id) > parseInt(b.id);
+    });
+    $('#list').append(elems);
+
+    }});
+});
+</script>
+</head>
+<body>
+
+<div id="carList"></div>
+</body>
+</html>
