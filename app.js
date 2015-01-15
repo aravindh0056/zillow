@@ -12,6 +12,7 @@ app.get('/cars', function(req, res){
     {"mpg":22, "price":72000, "name":"Luxury"}
   ]
 } 
+//following line is not advisable in production env.
   res.header("Access-Control-Allow-Origin", "*");
   res.send(response);
 });
