@@ -6,7 +6,7 @@ var app = express()
 var express = require('express');
 var app = express();
 
-app.get('/', function(req, res){
+app.get('/cars', function(req, res){
   var response = { 
           automobiles: [ 
     {"mpg":25, "price":11000, "name":"Subcompact"},
